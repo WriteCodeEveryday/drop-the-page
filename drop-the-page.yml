@@ -1,0 +1,61 @@
+swagger: "2.0"
+info:
+  description: Drop The Page Scheduler
+  version: "0.1.0"
+  title: drop-the-page
+basePath: "/api/v1"
+schemes:
+  - "https"
+paths:
+  /status:
+    get:
+      summary: "Get job status"
+      operationId: "status"
+      parameters:
+        - in: query
+          name: id
+          type: "string"
+          description: job id
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/Status"
+  /schedule:
+    post:
+      summary: "Schedules jobs"
+      operationId: "schedule"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/Schedule"
+      parameters:
+        - in: body
+          name: url
+          schema:
+            type: "string"
+          description: url to scrape
+definitions:
+  Schedule:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      status:
+        type: "string"
+  Status:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      url:
+        type: "string"
+      payload:
+        type: "string"
+      status:
+        type: "string"
