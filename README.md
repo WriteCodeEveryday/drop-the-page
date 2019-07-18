@@ -24,6 +24,12 @@ MYSQL_PASSWORD=password
 MYSQL_DATABASE=database
 ```
 
+Use db-migrate to generate the tables in mysql
+
+```
+node_modules/db-migrate/bin/db-migrate up
+```
+
 Start the node project using npm
 
 ```bash
