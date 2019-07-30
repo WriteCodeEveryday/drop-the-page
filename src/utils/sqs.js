@@ -38,7 +38,8 @@ sqs.receiveMessage({
         });
       }
     }
-  }                                                                                                                                              });
+  }
+});                                                                                                                                              });
 
 const push = (id, url) => {
   const params = {
